@@ -13,7 +13,7 @@ public class Capes implements ModInitializer, ClientModInitializer {
     public static final String MOD_ID = "capes";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     
-    private static final String GITHUB_CONFIG_URL = "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/config.json";
+    private static final String GITHUB_CONFIG_URL = "https://raw.githubusercontent.com/thefunkybunch/.github/refs/heads/main/resources/config.json";
     private static final String GITHUB_TEXTURES_URL = "https://raw.githubusercontent.com/thefunkybunch/.github/refs/heads/main/resources/imgs/";
     
     @Override
