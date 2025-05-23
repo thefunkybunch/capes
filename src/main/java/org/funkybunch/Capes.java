@@ -14,7 +14,7 @@ public class Capes implements ModInitializer, ClientModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     
     private static final String GITHUB_CONFIG_URL = "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/config.json";
-    private static final String GITHUB_TEXTURES_URL = "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/textures/";
+    private static final String GITHUB_TEXTURES_URL = "https://raw.githubusercontent.com/thefunkybunch/.github/refs/heads/main/resources/imgs/";
     
     @Override
     public void onInitialize() {
