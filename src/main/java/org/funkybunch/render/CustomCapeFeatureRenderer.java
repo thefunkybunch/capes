@@ -72,4 +72,29 @@ public class CustomCapeFeatureRenderer extends FeatureRenderer<AbstractClientPla
         m = MathHelper.clamp(m, 0.0F, 150.0F);
         
         float n = (g * e - j * d) * 100.0F;
-        n = MathHelper.clamp(n, -20.
+        n = MathHelper.clamp(n, -20.0F, 20.0F);
+        
+        if (l < 0.0F) {
+            l = 0.0F;
+        }
+        
+        float o = MathHelper.lerp(tickDelta, player.prevStrideDistance, player.strideDistance);
+        l += MathHelper.sin(MathHelper.lerp(tickDelta, player.prevHorizontalSpeed, player.horizontalSpeed) * 6.0F) * 32.0F * o;
+        
+        if (player.isSneaking()) {
+            l += 25.0F;
+        }
+        
+        matrixStack.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion(6.0F + m / 2.0F + l));
+        matrixStack.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(n / 2.0F));
+        matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(180.0F - n / 2.0F));
+        
+        // Get vertex consumer for cape rendering
+        VertexConsumer vertexConsumer = vertexConsumerProvider.getBuffer(RenderLayer.getEntitySolid(capeTexture));
+        
+        // Render the cape geometry
+        this.getContextModel().renderCape(matrixStack, vertexConsumer, light, OverlayTexture.DEFAULT_UV);
+        
+        matrixStack.pop();
+    }
+}
